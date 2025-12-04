@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 FILE *fptr;
 
@@ -63,11 +64,11 @@ void addEntry()
 
 void viewEntries()
 {
-    printf("-- Loading the entries --\n");
-
     char entries[100];
 
     fptr = fopen("data.txt", "r");
+
+    printf("-- Loading the entries --\n");
 
     printf("Entries\n");
 
