@@ -41,7 +41,7 @@ void addEntry()
     printf("-- Adding an entry --\n");
 
     struct entry e1;
-    printf("Enter your password and username in order: \n");
+    printf("Enter service, username and password in order: \n");
 
     scanf("%s %s %s", e1.service, e1.username, e1.password);
 
@@ -54,6 +54,7 @@ void addEntry()
     fprintf(fptr, "Service: %s\n", e1.service);
     fprintf(fptr, "Username: %s\n", e1.username);
     fprintf(fptr, "User password: %s\n", e1.password);
+    fprintf(fptr, "----------\n");
 
     fclose(fptr);
 
