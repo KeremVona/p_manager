@@ -3,10 +3,29 @@
 FILE *fptr;
 
 void addEntry();
+void viewEntries();
 
 int main()
 {
-    addEntry();
+    int key;
+    printf("Welcome to p_manager\n");
+    printf("Please choose your action\n");
+
+    printf("1 - Add Entry\n2 - View Entries\n");
+
+    scanf("%d", &key);
+
+    switch (key)
+    {
+    case 1:
+        addEntry();
+        break;
+    case 2:
+        viewEntries();
+        break;
+    default:
+        break;
+    }
     return 0;
 }
 
@@ -29,4 +48,22 @@ void addEntry()
     fclose(fptr);
 
     printf("Entry added\n");
+}
+
+void viewEntries()
+{
+    printf("-- Loading the entries --\n");
+
+    char entries[100];
+
+    fptr = fopen("data.txt", "r");
+
+    printf("Entries\n");
+
+    while (fgets(entries, 100, fptr))
+    {
+        printf("%s", entries);
+    }
+
+    fclose(fptr);
 }
