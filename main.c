@@ -2,6 +2,13 @@
 
 FILE *fptr;
 
+struct entry
+{
+    char service[100];
+    char username[20];
+    char password[12];
+};
+
 void addEntry();
 void viewEntries();
 
@@ -32,18 +39,21 @@ int main()
 void addEntry()
 {
     printf("-- Adding an entry --\n");
-    char userPassword[16];
-    char username[16];
+
+    struct entry e1;
     printf("Enter your password and username in order: \n");
-    scanf("%s %s", userPassword, username);
-    printf("Your password is: %s \n", userPassword);
-    printf("Your username is: %s \n", username);
+
+    scanf("%s %s %s", e1.service, e1.username, e1.password);
+
+    printf("Saving service: %s \n", e1.service);
+    printf("Saving username: %s \n", e1.username);
+    printf("Saving password: %s \n", e1.password);
 
     fptr = fopen("data.txt", "a");
 
-    fprintf(fptr, "User password: %s\n", userPassword);
-
-    fprintf(fptr, "Username: %s\n", username);
+    fprintf(fptr, "Service: %s\n", e1.service);
+    fprintf(fptr, "Username: %s\n", e1.username);
+    fprintf(fptr, "User password: %s\n", e1.password);
 
     fclose(fptr);
 
